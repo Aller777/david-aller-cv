@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - David Alex Aller Onocc | Ingeniero de Software</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            light: '#0f766e', // Teal 700
+                            dark: '#2dd4bf',  // Teal 400
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+            .shadow-lg, .shadow-xl { box-shadow: none !important; }
+            .bg-white { background: transparent !important; }
+            a { text-decoration: none; color: black; }
+            .print-break { page-break-inside: avoid; }
+        }
+        
+        /* Subtle texture for background */
+        .bg-texture {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .dark .bg-texture {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+        }
+
+        .hover-lift {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-800 transition-colors duration-300 dark:bg-slate-900 dark:text-slate-200 font-sans bg-texture min-h-screen">
+
+    <!-- Floating Actions -->
+    <div class="fixed top-6 right-6 flex gap-3 z-50 no-print">
+        <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm flex items-center justify-center hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors" title="Cambiar Tema">
+            <i class="fas fa-moon text-slate-600 dark:hidden"></i>
+            <i class="fas fa-sun text-yellow-400 hidden dark:inline"></i>
+        </button>
+        <button onclick="window.print()" class="w-10 h-10 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-sm flex items-center justify-center hover:opacity-90 transition-opacity" title="Imprimir PDF">
+            <i class="fas fa-print"></i>
+        </button>
+    </div>
+
+    <!-- Main Container (A4-ish proportions on desktop) -->
+    <div class="max-w-4xl mx-auto my-0 md:my-12 bg-white dark:bg-slate-800 shadow-xl print:shadow-none min-h-[1100px]">
+        
+        <!-- Header: Full width name/profile -->
+        <header class="p-8 md:p-12 border-b border-gray-100 dark:border-slate-700 flex flex-col md:flex-row items-center gap-8">
+            
+            <!-- Photo Placeholder Section -->
+            <div class="shrink-0 relative group">
+                <!-- CAMBIO AQUÍ: 'rounded-2xl' en lugar de 'rounded-full' para forma cuadrada/rectangular con bordes suaves -->
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl bg-white dark:bg-slate-700 border-4 border-white dark:border-slate-800 shadow-lg overflow-hidden flex items-center justify-center relative">
+                    <!-- CAMBIO: object-contain para que la foto se vea COMPLETA sin recortar -->
+                    <img src="/img/imgg.png" alt="David Alex Aller Onocc" class="w-full h-full object-contain">
+                    
+                    <!-- Hover hint for user (hidden in print) -->
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity cursor-pointer no-print">
+                        <span class="text-white text-xs font-bold text-center px-2">Cambiar Foto en código</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Content Wrapper (Full Width) -->
+            <div class="flex-grow w-full text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white mb-2 font-serif">
+                    David Alex Aller Onocc
+                </h1>
+                <p class="text-xl text-accent-light dark:text-accent-dark font-medium mb-4">
+                    Ingeniero de Software con IA | Backend Developer
+                </p>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-base border-l-0 md:border-l-4 border-gray-200 dark:border-slate-600 md:pl-4">
+                    Ingeniero de Software con enfoque en desarrollo backend, automatización de procesos y sistemas empresariales. Experiencia en el diseño y mantenimiento de aplicaciones web. Uso activo de herramientas de IA para optimizar desarrollo, análisis y productividad. Orientado a soluciones escalables y mejora continua.
+                </p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 min-h-screen">
+            
+            <!-- Sidebar (Left - 4 cols) -->
+            <aside class="md:col-span-4 bg-slate-50 dark:bg-slate-900/50 p-8 md:border-r border-gray-100 dark:border-slate-700">
+                
+                <!-- CONTACTO (Moved here) -->
+                <section class="mb-10 print-break">
+                    <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-accent-light dark:bg-accent-dark rounded-full"></span> Contacto
+                    </h3>
+                    
+                    <div class="flex flex-col gap-4 text-sm text-slate-600 dark:text-slate-400">
+                        <a href="mailto:allerdavid777@gmail.com" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors flex items-center gap-3 group">
+                            <div class="w-8 h-8 shrink-0 rounded bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 flex items-center justify-center group-hover:border-accent-light dark:group-hover:border-accent-dark">
+                                <i class="fas fa-envelope text-xs"></i>
+                            </div>
+                            <span class="break-all">allerdavid777@gmail.com</span>
+                        </a>
+                        <a href="tel:+51913073298" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors flex items-center gap-3 group">
+                            <div class="w-8 h-8 shrink-0 rounded bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 flex items-center justify-center group-hover:border-accent-light dark:group-hover:border-accent-dark">
+                                <i class="fas fa-phone text-xs"></i>
+                            </div>
+                            <span>+51 913 073 298</span>
+                        </a>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 shrink-0 rounded bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-xs"></i>
+                            </div>
+                            <span>Lima, Perú</span>
+                        </div>
+                        <a href="https://www.linkedin.com/in/david-alex-aller-onocc-1b4731300/" target="_blank" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors flex items-center gap-3 group">
+                            <div class="w-8 h-8 shrink-0 rounded bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 flex items-center justify-center group-hover:border-accent-light dark:group-hover:border-accent-dark">
+                                <i class="fab fa-linkedin-in text-xs"></i>
+                            </div>
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="mb-10 print-break">
+                    <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-accent-light dark:bg-accent-dark rounded-full"></span> Educación
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="text-sm text-slate-400 mb-1">Egresado (2025)</div>
+                            <h4 class="font-bold text-slate-800 dark:text-white leading-tight">Ingeniería de Software con Inteligencia Artificial</h4>
+                            <div class="text-sm font-medium text-accent-light dark:text-accent-dark mt-1">SENATI – Lima</div>
+                            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Formación en desarrollo, BD, cloud e IA. Admitido por excelencia académica.</p>
+                        </div>
+
+                        <div>
+                            <div class="text-sm text-slate-400 mb-1">Secundaria</div>
+                            <h4 class="font-bold text-slate-800 dark:text-white leading-tight">I.E. San Antonio de Jicamarca</h4>
+                            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Alto rendimiento académico. Candidato destacado al COAR.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section class="mb-10 print-break">
+                    <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-accent-light dark:bg-accent-dark rounded-full"></span> Idiomas
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex justify-between items-center pb-2 border-b border-gray-200 dark:border-slate-700">
+                            <span>Español</span>
+                            <span class="text-slate-500 font-light">Nativo</span>
+                        </li>
+                        <li class="flex justify-between items-center pb-2 border-b border-gray-200 dark:border-slate-700">
+                            <span>Inglés</span>
+                            <span class="text-slate-500 font-light">Básico (A2)</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Certifications (Simple list) -->
+                <section class="print-break">
+                    <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-6 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-accent-light dark:bg-accent-dark rounded-full"></span> Certificaciones
+                    </h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">AWS Academy Graduate - Cloud Operations</div>
+                            <div class="text-xs text-slate-500">Amazon Web Services (Ago. 2025)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Artificial Intelligence with Machine Learning in Java</div>
+                            <div class="text-xs text-slate-500">Oracle (Nov. 2024)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Database Design</div>
+                            <div class="text-xs text-slate-500">Oracle (Mar. 2024)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Database Programming with SQL</div>
+                            <div class="text-xs text-slate-500">Oracle (Mar. 2024)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Red Hat System Admin I (RH124)</div>
+                            <div class="text-xs text-slate-500">Red Hat (Nov. 2023)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Introduction to Data Science</div>
+                            <div class="text-xs text-slate-500">Cisco Networking Academy (Nov. 2023)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Java Fundamentals</div>
+                            <div class="text-xs text-slate-500">Oracle (Sept. 2023)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Networking Essentials</div>
+                            <div class="text-xs text-slate-500">Cisco Networking Academy (Jun. 2023)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Programming Essentials in Python</div>
+                            <div class="text-xs text-slate-500">Cisco Networking Academy (Jun. 2023)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Entrepreneurship</div>
+                            <div class="text-xs text-slate-500">Cisco Networking Academy (Abr. 2023)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Introducción a la Seguridad Cibernética</div>
+                            <div class="text-xs text-slate-500">Cisco Networking Academy (Abr. 2023)</div>
+                        </li>
+                        <li class="group">
+                            <div class="font-medium text-slate-800 dark:text-slate-200 group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">Get Connected & IoT</div>
+                            <div class="text-xs text-slate-500">Cisco Networking Academy (Mar. 2023)</div>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Main Content (Right - 8 cols) -->
+            <main class="md:col-span-8 p-8 md:p-12">
+
+                <!-- Experience Detail -->
+                <section class="mb-12">
+                    <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-6">Experiencia Profesional</h3>
+                    
+                    <div class="relative pl-8 border-l border-gray-200 dark:border-slate-700 space-y-12">
+                        
+                        <!-- Job Item 1 (New) -->
+                        <div class="relative">
+                            <div class="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-white dark:bg-slate-800 border-2 border-accent-light dark:border-accent-dark"></div>
+                            
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-2">
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">Desarrollador Backend</h4>
+                                <span class="text-sm font-medium text-accent-light dark:text-accent-dark bg-teal-50 dark:bg-slate-700 px-2 py-1 rounded">2025 - Actualidad</span>
+                            </div>
+                            
+                            <!-- Company with Logo -->
+                            <div class="flex items-center gap-2 mb-4">
+                                <!-- Logo container widened a bit for better rectangle support -->
+                                <div class="w-12 h-12 rounded-md bg-white border border-gray-200 dark:border-slate-600 p-0.5 flex items-center justify-center overflow-hidden shrink-0">
+                                    <img src="/img/logog.png" 
+                                         alt="Logo GEINCOS" 
+                                         class="w-full h-full object-contain">
+                                </div>
+                                <div class="text-sm font-semibold text-slate-500 dark:text-slate-400">GEINCOS (Gestión de Cobranzas y Servicios)</div>
+                            </div>
+                            
+                            <div class="prose prose-sm dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+                                <p class="mb-4 font-light italic text-sm">
+                                    Desarrollo y mantenimiento de sistemas empresariales, automatización de procesos y soporte operativo.
+                                </p>
+                                <ul class="space-y-2 list-none pl-0">
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check mt-1 text-accent-light dark:text-accent-dark text-xs"></i>
+                                        <span>Desarrollo de módulos backend con <strong>PHP</strong> y <strong>Laravel</strong>.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check mt-1 text-accent-light dark:text-accent-dark text-xs"></i>
+                                        <span>Gestión y optimización de bases de datos <strong>MySQL</strong>.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check mt-1 text-accent-light dark:text-accent-dark text-xs"></i>
+                                        <span>Automatización de procesos administrativos y mantenimiento de sistemas legacy.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check mt-1 text-accent-light dark:text-accent-dark text-xs"></i>
+                                        <span>Soporte TI a nivel sistemas y uso de IA para depuración técnica.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Job Item 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-white dark:bg-slate-800 border-2 border-gray-300 dark:border-gray-600"></div>
+                            
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-baseline mb-4">
+                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">Desarrollador Backend Junior</h4>
+                                <span class="text-sm font-medium text-slate-500 bg-gray-100 dark:bg-slate-700 px-2 py-1 rounded">2024 - 2025</span>
+                            </div>
+                            
+                            <div class="prose prose-sm dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
+                                <p class="mb-4 font-light italic text-sm">
+                                    Encargado de la lógica del servidor, gestión de datos y eficiencia de aplicaciones web.
+                                </p>
+                                <ul class="space-y-2 list-none pl-0">
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check mt-1 text-gray-400 text-xs"></i>
+                                        <span>Sistemas CRUD escalables con frameworks robustos (Laravel/Django).</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check mt-1 text-gray-400 text-xs"></i>
+                                        <span>Diseño de BD relacionales y validaciones de seguridad full-stack.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i class="fas fa-check mt-1 text-gray-400 text-xs"></i>
+                                        <span>Maquetación HTML5 semántica con enfoque en SEO técnico.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Tools Section (New) -->
+                <section class="mb-12">
+                     <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-6 flex items-center gap-2">
+                        <i class="fas fa-robot"></i> Herramientas de Inteligencia Artificial
+                    </h3>
+                    <div class="bg-gradient-to-r from-slate-50 to-white dark:from-slate-800 dark:to-slate-800/50 p-6 rounded-xl border border-gray-100 dark:border-slate-700">
+                        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600 dark:text-slate-300">
+                            <li class="flex gap-2">
+                                <i class="fas fa-bolt text-yellow-500 mt-1"></i>
+                                <span>Asistentes de IA para análisis de código y debugging.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <i class="fas fa-bolt text-yellow-500 mt-1"></i>
+                                <span>Generación y optimización de consultas SQL.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <i class="fas fa-bolt text-yellow-500 mt-1"></i>
+                                <span>Mejora de productividad en tareas repetitivas.</span>
+                            </li>
+                            <li class="flex gap-2">
+                                <i class="fas fa-bolt text-yellow-500 mt-1"></i>
+                                <span>Validación lógica de soluciones técnicas.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Tech Stack Grid -->
+                <section class="mb-12">
+                    <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-6">Dominio Técnico</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <!-- Tech Item -->
+                        <div class="p-4 border border-gray-100 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 shadow-sm">
+                            <i class="fab fa-php text-2xl text-indigo-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">PHP & Laravel</h4>
+                            <p class="text-xs text-slate-500 mt-1">Backend Principal</p>
+                        </div>
+                        <div class="p-4 border border-gray-100 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 shadow-sm">
+                            <i class="fab fa-python text-2xl text-yellow-600 mb-2"></i>
+                            <h4 class="font-bold text-sm">Python & Django</h4>
+                            <p class="text-xs text-slate-500 mt-1">Backend & Scripts</p>
+                        </div>
+                        <div class="p-4 border border-gray-100 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 shadow-sm">
+                            <i class="fas fa-database text-2xl text-blue-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">MySQL / SQL Server</h4>
+                            <p class="text-xs text-slate-500 mt-1">Base de Datos</p>
+                        </div>
+                        <div class="p-4 border border-gray-100 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 shadow-sm">
+                            <i class="fab fa-html5 text-2xl text-orange-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">Frontend Base</h4>
+                            <p class="text-xs text-slate-500 mt-1">HTML5, CSS, JS</p>
+                        </div>
+                        <div class="p-4 border border-gray-100 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 shadow-sm">
+                            <i class="fab fa-linux text-2xl text-slate-700 dark:text-slate-300 mb-2"></i>
+                            <h4 class="font-bold text-sm">Linux (RHEL)</h4>
+                            <p class="text-xs text-slate-500 mt-1">SysAdmin</p>
+                        </div>
+                        <div class="p-4 border border-gray-100 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 shadow-sm">
+                            <i class="fas fa-tools text-2xl text-gray-500 mb-2"></i>
+                            <h4 class="font-bold text-sm">Dev Tools</h4>
+                            <p class="text-xs text-slate-500 mt-1">Git, Github, VS Code</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Soft Skills Inline -->
+                <section class="mt-12 pt-8 border-t border-gray-100 dark:border-slate-700">
+                    <h3 class="uppercase tracking-widest text-xs font-bold text-slate-400 mb-4">Aptitudes Personales</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300">Resolución de problemas técnicos</span>
+                        <span class="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300">Pensamiento lógico y crítico</span>
+                        <span class="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300">Trabajo en equipo</span>
+                        <span class="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-slate-600 dark:text-slate-300">Adaptabilidad</span>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+        
+        <footer class="p-6 text-center text-xs text-slate-400 border-t border-gray-100 dark:border-slate-700 print:hidden">
+            &copy; 2026 David Aller Onocc - CV Interactivo
+        </footer>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body>
+</html>
